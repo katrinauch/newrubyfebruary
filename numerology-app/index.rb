@@ -48,14 +48,14 @@ post '/' do
   erb :form
 end
 
-get '/:birthdate' do
+post '/:birthdate' do
 	birthdate = params[:birthdate]
 	birth_path_num = get_birth_path_num(birthdate)
 	@message = get_message(birth_path_num)
-  erb :form
+  erb :index
 end
 
-post '/' do
-  "#{@message}"
+get '/' do
+  {"@message"}
   erb :index
 end
